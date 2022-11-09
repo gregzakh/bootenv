@@ -11,6 +11,8 @@ namespace BootEnvironment {
     }
 
     static void Main() {
+      // in Linux the approach is something like this
+      // Directory.Exists("/sys/firmware/efi") ? "UEFI" : "Legacy";
       if (!NativeMethods.IsWin8OrHigher()) {
         Console.WriteLine(StrMsg("Legacy operating system (seems {0}).",
           new String[] {"Legacy", "UEFI"} [File.Exists(
